@@ -1,0 +1,108 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": true,
+      "node": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:promise/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/typescript"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "simple-import-sort",
+    "react-hooks",
+    "promise",
+    "optimize-regex",
+    "sonarjs",
+    "prettier",
+    "formatjs",
+    "import"
+  ],
+  "rules": {
+    "sonarjs/no-identical-functions": "off",
+    "sonarjs/cognitive-complexity": ["warn", 15],
+    "import/export": "warn",
+    // "import/no-restricted-paths": ["error", {
+    //   "zones": [{
+    //     "target": ["./src/types"],
+    //     "from": ["./src/components", "./src/features"],
+    //     "message": "The types package cannot contain imports from components or features"
+    //   }]
+    // }],
+    //   "no-restricted-imports": [
+    //   "error",
+    //   {
+    //     "patterns": [{
+    //       "group": ["**/releaseStore/selectReleaseFormCloned"],
+    //       "message": "selectReleaseFormClone deprecated. Do not use it"
+    //     }]
+    //   }
+    // ],
+    "react/display-name": "off",
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^\\u0000"],
+          ["^@?\\w"],
+          ["^(api|assets|components|containers|features|config|const|etc|hooks|lang|lib|misc|store|styles|types|utils)(/.*|$)"],
+          ["^\\."]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error",
+    // "jsx-a11y/anchor-is-valid": [
+    //   "error",
+    //   {
+    //     "components": ["Link"],
+    //     "specialLink": ["hrefLeft", "hrefRight"],
+    //     "aspects": ["invalidHref", "preferButton"]
+    //   }
+    // ],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "jsx-quotes": ["error", "prefer-double"],
+    "formatjs/enforce-id": [
+      "warn",
+      {
+        "idInterpolationPattern": "[sha512:contenthash:base64:6]"
+      }
+    ],
+    "react/no-unknown-property": ["warn", { "ignore": ["css"] }]
+  },
+  "globals": {
+    "React": "writable"
+  }
+}
